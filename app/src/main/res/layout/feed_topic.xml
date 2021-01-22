@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="@string/topic_time"
+        android:text="@string/topic_time"/>
 
     <TextView
         android:id="@+id/topic_title_view"
@@ -32,5 +32,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:text="@string/topic_description" />
+
 
 </LinearLayout>

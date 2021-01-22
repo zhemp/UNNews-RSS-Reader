@@ -1,10 +1,13 @@
 package com.android.example.rssreader
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.android.example.rssreader.model.Item
 
@@ -19,7 +22,6 @@ class TopicAdapter(private val TopicList: MutableList<Item>) : RecyclerView.Adap
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopicViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val view = layoutInflater.inflate(R.layout.feed_topic, parent, false)
-
         return TopicViewHolder(view)
     }
 
@@ -28,13 +30,17 @@ class TopicAdapter(private val TopicList: MutableList<Item>) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: TopicViewHolder, position: Int) {
-        holder.timeView.text = TopicList[position].pubDate
+        val date : List<String> = TopicList[position].pubDate.split(" ")
+        val output : String = date[2]+" "+date[1]+" "+date[3]
+        holder.timeView.text = output
         holder.topicView.text = TopicList[position].title
         holder.descriptionView.text = TopicList[position].description
 
         holder.entryView.setOnClickListener {
-            val intent = Intent(this, NewsArticleActivity::class.java)
-            startActivity(intent)
+           //Toast.makeText(it.context, "Hi there! This is a Toast.", Toast.LENGTH_SHORT).show()
+            val two2three = Intent(it.context,NewsArticleActivity::class.java)
+            two2three.putExtra("article",TopicList[position])
+            it.context.startActivity(two2three)
         }
     }
 }

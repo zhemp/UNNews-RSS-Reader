@@ -2,6 +2,8 @@ package com.android.example.rssreader
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.example.rssreader.model.Item
@@ -21,7 +23,7 @@ class FeedActivity : AppCompatActivity() {
 
     /* Holds all News Articles for Selected Topic */
     private val rssFeedList = mutableListOf<Item>()     // Hint: You'll need this for your adapter
-
+    private val FeedList = TopicAdapter(rssFeedList)    //Store adapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feed)
@@ -33,10 +35,10 @@ class FeedActivity : AppCompatActivity() {
         // ========== PHASE 1 : from here ==========================================================
         // TODO: Add RecyclerView here based on Item objects
         // ========== PHASE 1 : to here ============================================================
-        val topic_rv = findViewById<RecyclerView>(R.id.topic_recyclerview)
-        topic_rv.layoutManager = LinearLayoutManager(this)
-        topic_rv.adapter = TopicAdapter(rssFeedList)
-
+        val topicRv = findViewById<RecyclerView>(R.id.topic_recyclerview).apply {
+            layoutManager = LinearLayoutManager(this@FeedActivity)
+            adapter = FeedList
+        }
 
 
 
@@ -58,6 +60,7 @@ class FeedActivity : AppCompatActivity() {
             }
 
             // TODO PHASE 1 : Update RecyclerView list and notify data set changed
+            FeedList.notifyDataSetChanged()
         }
     }
 
@@ -67,7 +70,9 @@ class FeedActivity : AppCompatActivity() {
      */
     private fun onRssFailure(call: Call<RSSWrapper?>?, t: Throwable?) {
         // TODO PHASE 1: Log error here since request failed
+        Log.e("FeedActivity","Failed to fetch Article - error")
         // TODO PHASE 1: Make toast telling user articles could not be fetched
+        Toast.makeText(this,"Articles Could not be Fetched", Toast.LENGTH_SHORT).show()
     }
 
     /**

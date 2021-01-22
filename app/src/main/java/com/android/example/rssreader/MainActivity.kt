@@ -8,7 +8,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_feed)
 
         // ========== PHASE 3 : from here ==========================================================
         // TODO: Add RecyclerView here for all "feeds by topic" options
