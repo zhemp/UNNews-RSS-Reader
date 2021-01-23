@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_card"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/feed_topic"
+        android:layout_width="206dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:text="Text"
+        android:textColor="#000000"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/feed_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:rotation="180"
+        android:layout_weight="0.5"
+        app:srcCompat="?attr/homeAsUpIndicator" />
+
+
+
+</LinearLayout>

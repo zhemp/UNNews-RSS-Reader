@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RSS Reader</string>
+    <string name="app_name">UN News</string>
     <string name="topic_time">topic_time</string>
     <string name="topic_title">topic_title</string>
     <string name="topic_description">topic_description</string>

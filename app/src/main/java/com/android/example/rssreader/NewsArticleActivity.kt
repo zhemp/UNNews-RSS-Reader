@@ -28,10 +28,17 @@ class NewsArticleActivity : AppCompatActivity() {
         roller.setOnClickListener { openWebPage(article.link) }
     }
     fun openWebPage(url: String) {
-        val webpage: Uri = Uri.parse(url)
-        val intent = Intent(Intent.ACTION_VIEW, webpage)
-        if (intent.resolveActivity(packageManager) != null) {
+        try {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.addCategory(Intent.CATEGORY_BROWSABLE);
+            intent.setData(Uri.parse(url))
             startActivity(intent)
+        } catch (e: Exception) {
+            println("There is no Web Browser in this phone")
+        }
+        //val webpage: Uri = Uri.parse(url)
+        //val intent = Intent(Intent.ACTION_VIEW, webpage)
+        //if (intent.resolveActivity(packageManager) != null) {
+            //startActivity(intent)
         }
     }
-}
