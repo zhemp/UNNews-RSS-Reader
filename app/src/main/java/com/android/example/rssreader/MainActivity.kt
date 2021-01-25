@@ -36,17 +36,5 @@ class MainActivity : AppCompatActivity() {
         }
 
         // ========== PHASE 3 : to here ============================================================
-
-        // ========== PHASE 3 : Remove this section if needed from here ============================
-        // TODO: Remove this section
-        /* Send User to FeedActivity to view UN News Article by Topic */
-        //val topic = FeedTopic("Health", "health")
-        // TODO: try switching above line with below and see what happens on FeedActivity Page
-        // val topic = FeedTopic("Human Rights", "human-rights")
-
-        //val intent = Intent(this, FeedActivity::class.java)
-        //intent.putExtra("feed", topic)
-        //this.startActivity(intent)
-        // ========== PHASE 3 : to here ============================================================
     }
 }

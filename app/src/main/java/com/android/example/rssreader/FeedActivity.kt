@@ -33,13 +33,11 @@ class FeedActivity : AppCompatActivity() {
 
 
         // ========== PHASE 1 : from here ==========================================================
-        // TODO: Add RecyclerView here based on Item objects
-        // ========== PHASE 1 : to here ============================================================
         val topicRv = findViewById<RecyclerView>(R.id.topic_recyclerview).apply {
             layoutManager = LinearLayoutManager(this@FeedActivity)
             adapter = FeedList
         }
-
+        // ========== PHASE 1 : to here ============================================================
 
 
         /* Fetch UN Article Feeds */
