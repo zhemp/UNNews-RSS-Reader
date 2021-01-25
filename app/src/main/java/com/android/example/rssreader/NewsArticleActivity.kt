@@ -34,7 +34,7 @@ class NewsArticleActivity : AppCompatActivity() {
             intent.setData(Uri.parse(url))
             startActivity(intent)
         } catch (e: Exception) {
-            println("There is no Web Browser in this phone")
+            Toast.makeText(this,"No Web Browser in your phone", Toast.LENGTH_SHORT).show()
         }
         //val webpage: Uri = Uri.parse(url)
         //val intent = Intent(Intent.ACTION_VIEW, webpage)
